@@ -9,7 +9,7 @@ export const Container = styled.div`
   justify-content: center;
   flex-direction: column;
 
-  img {
+  img{
     width: 100px;
     margin-bottom: 20px;
   }
@@ -29,7 +29,7 @@ export const Form = styled.form`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-`;
+`
 
 export const Input = styled.input`
   height: 58px;
@@ -39,9 +39,9 @@ export const Input = styled.input`
   border-style: none;
   margin-bottom: 20px;
 
-  ::placeholder {
-    color: #000000;
-  }
+  ::placeholder{
+      color: #000000;
+    }
 `;
 
 export const Button = styled.button`

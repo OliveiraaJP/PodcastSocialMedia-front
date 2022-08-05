@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
+import * as authService from "../../services/authService.js"
 import articunoPng from "../../assets/articuno.png"
 
 import { Container, Button, Input, Form } from "./styles.js";
@@ -8,7 +8,7 @@ import { Container, Button, Input, Form } from "./styles.js";
 function Signup() {
   const navigate = useNavigate();
 
-  const [usename, setUsename] = useState("");
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -16,13 +16,21 @@ function Signup() {
 
   function createUser(event) {
     event.preventDefault();
-    console.log([email, usename]);
+    const response = authService.signup({username, email, password, confirmPassword, image})
+    response.then(data => {
+      if(data.status === 201){
+        console.log([data.status ,data.statusText]);
+        navigate('/login')
+      } else {
+         console.log([data.status , data.statusText]);
+      }
+    })
   }
 
   return (
     <>
       <Container>
-        <img src={articunoPng} alt="" srcset="" />
+        <img src={articunoPng} alt=""/>
         <Form onSubmit={createUser}>
           <Input
             type="email"
@@ -33,7 +41,7 @@ function Signup() {
           <Input
             type="text"
             placeholder="Username"
-            onChange={(e) => setUsename(e.target.value)}
+            onChange={(e) => setUsername(e.target.value)}
             required
           ></Input>
           <Input
