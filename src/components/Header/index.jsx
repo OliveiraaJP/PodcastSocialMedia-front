@@ -1,12 +1,11 @@
-import React, { useContext, useMemo, useRef, useState } from "react";
+import React, {useRef, useState } from "react";
 import { BiSearchAlt } from "react-icons/bi";
-import UserContext from "../../contexts/userContext";
 import { Container } from "./styles";
 
 const Header = ({ username, imageUrl, searchBarFunction, value, }) => {
   const [search, setSearch] = useState(false);
   const searchBar = useRef(null)
-  const {userData} = useContext(UserContext)
+
 
   async function focusOnInput(){
     await setSearch(!search)

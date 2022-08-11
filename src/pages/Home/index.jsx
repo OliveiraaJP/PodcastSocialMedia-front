@@ -1,5 +1,5 @@
 import * as podcastService from "../../services/podcastService.js";
-import React, { useContext, useEffect, useMemo, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import SearchPodcastBox from "../../components/SearchPodcastBox/index.jsx";
@@ -86,6 +86,7 @@ function Home() {
                             podcastImage={pod.image}
                             podcastName={pod.name}
                             key={i}
+                            onClick={() => navigate(`/podcast/${pod.id}`)}
                           />
                         );
                       }

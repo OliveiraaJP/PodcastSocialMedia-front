@@ -1,9 +1,9 @@
 import React from "react";
 import { Container } from "./styles";
 
-function PodcastBox({ podcastName, podcastImage }) {
+function PodcastBox({ podcastName, podcastImage, onClick }) {
   return (
-    <Container>
+    <Container onClick={onClick}>
       <img src={podcastImage} alt={podcastName} />
       <p>{podcastName}</p>
     </Container>

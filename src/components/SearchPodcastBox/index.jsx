@@ -1,11 +1,11 @@
 import React from "react";
 import { Box, Container } from "./styles";
 
-function SearchPodcastBox({ podcastImage, podcastName, podcastEpisodes }) {
+function SearchPodcastBox({ podcastImage, podcastName, podcastEpisodes, onClick }) {
   return (
     <>
       <Container>
-        <Box>
+        <Box onClick={onClick}>
           <div>
             <img src={podcastImage} alt={podcastImage} />
           </div>
