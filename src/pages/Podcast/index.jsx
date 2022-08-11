@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { BsArrowBarLeft } from "react-icons/bs";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import UserContext from "../../contexts/userContext";
 import { Container } from "./styles";
 import * as podcastService from "../../services/podcastService.js"
@@ -25,7 +25,9 @@ function Podcast() {
   return (
     <Container>
       <header>
+        <Link to="/homepage">
         <BsArrowBarLeft size="40px" color="#666600"/>
+        </Link>
         <span>
           <AiOutlineStar size="40px" color="#666600"/>
           <AiFillStar size="40px" color="#666600"/>

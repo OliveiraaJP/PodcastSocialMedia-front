@@ -9,7 +9,7 @@ import { Box, Container } from "./styles";
 import { useNavigate } from "react-router-dom";
 
 function Home() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const { userData } = useContext(UserContext);
   console.log(userData);
   const config = {
@@ -19,14 +19,23 @@ function Home() {
   };
 
   const [allPodcasts, setAllPodcasts] = useState([]);
+  const [favPodcasts, setFavPodcasts] = useState([]);
   const [reload, setReload] = useState(true);
 
   useEffect(() => {
     const promise = podcastService.getAllPodcasts(config);
+    const promiseFav = podcastService.getFavoritePodcast(config);
+
     promise.then((res) => {
       setAllPodcasts(res.data);
     });
+    promiseFav.then((res) => {
+      setFavPodcasts(res.data);
+    });
+
     promise.catch((err) => console.log(err));
+    promiseFav.catch((err) => console.log(err));
+
     promise.finally(() => setReload(!true));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [reload]);
@@ -44,7 +53,6 @@ function Home() {
     if (e.nativeEvent.data === "[") setBusca("");
   }
 
-
   return (
     <>
       {userData.token === null && <p>TEM QUE LOGAR MERMAO</p>}
@@ -61,18 +69,17 @@ function Home() {
               <Box>
                 <header>Favorite podcasts</header>
                 <main>
-                  <PodcastBox
-                    podcastImage="https://i.imgur.com/mhuyBpx.png"
-                    podcastName="Paciente 63"
-                  />
-                  <PodcastBox
-                    podcastImage="https://i.imgur.com/mhuyBpx.png"
-                    podcastName="Paciente 63"
-                  />
-                  <PodcastBox
-                    podcastImage="https://i.imgur.com/mhuyBpx.png"
-                    podcastName="Paciente 63"
-                  />
+                  {favPodcasts.length > 0 &&
+                    favPodcasts.map((pod, i) => {
+                      const { podcastRef } = pod;
+                      return (
+                        <PodcastBox
+                          podcastImage={podcastRef.image}
+                          podcastName={podcastRef.name}
+                          onClick={() => navigate(`/podcast/${podcastRef.id}`)}
+                        />
+                      );
+                    })}
                 </main>
               </Box>
               <Box>
