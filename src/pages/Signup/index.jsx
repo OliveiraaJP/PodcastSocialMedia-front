@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import * as authService from "../../services/authService.js"
-import articunoPng from "../../assets/articuno.png"
+import * as authService from "../../services/authService.js";
+import logoPng from "../../assets/logo.png";
 
 import { Container, Button, Input, Form } from "./styles.js";
 
@@ -16,21 +16,27 @@ function Signup() {
 
   function createUser(event) {
     event.preventDefault();
-    const response = authService.signup({username, email, password, confirmPassword, image})
-    response.then(data => {
-      if(data.status === 201){
-        console.log([data.status ,data.statusText]);
-        navigate('/login')
+    const response = authService.signup({
+      username,
+      email,
+      password,
+      confirmPassword,
+      image,
+    });
+    response.then((data) => {
+      if (data.status === 201) {
+        console.log([data.status, data.statusText]);
+        navigate("/login");
       } else {
-         console.log([data.status , data.statusText]);
+        console.log([data.status, data.statusText]);
       }
-    })
+    });
   }
 
   return (
     <>
       <Container>
-        <img src={articunoPng} alt=""/>
+        <img src={logoPng} alt="" />
         <Form onSubmit={createUser}>
           <Input
             type="email"
@@ -66,6 +72,9 @@ function Signup() {
             <p>Cadastrar</p>
           </Button>
         </Form>
+        <Link to="/login" style={{ textDecoration: 'none'}}>
+          <h2>Já possui conta? Ir para página de login!</h2>
+        </Link>
       </Container>
     </>
   );

@@ -21,6 +21,13 @@ export const Container = styled.div`
     line-height: 18px;
     color: #ffffff;
   }
+
+  h2{
+    margin-top: 15px;
+    font-size: 15px;
+    color: gray;
+
+  }
 `;
 
 export const Form = styled.form`
@@ -38,6 +45,7 @@ export const Input = styled.input`
   padding-left: 10px;
   border-style: none;
   margin-bottom: 20px;
+  box-shadow: 5px 5px #666600;
 
   ::placeholder {
     color: #000000;
@@ -47,9 +55,10 @@ export const Input = styled.input`
 export const Button = styled.button`
   width: 100%;
   height: 46px;
-  background-color: #104242;
+  background-color: #666600;
   border-radius: 5px;
   border-style: none;
+  box-shadow: 5px 5px black;
 
   p {
     font-family: "Raleway";
@@ -57,6 +66,6 @@ export const Button = styled.button`
     font-weight: 700;
     font-size: 20px;
     line-height: 23px;
-    color: #ffffff;
+    color: black;
   }
 `;
