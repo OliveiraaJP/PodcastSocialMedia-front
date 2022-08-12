@@ -16,14 +16,16 @@ function Podcast() {
       Authorization: `Bearer ${userData.token}`,
     },
   };
-  const [reload, setReload] = useState(1);
+  const [star, setStar] = useState('')
   console.log(id);
   const [singlePodcast, setSinglePodcast] = useState({});
   useEffect(() => {
     const promise = podcastService.getOnePodcast(id, config);
     promise.then((data) => setSinglePodcast(data.data));
     promise.catch((err) => console.log(err));
-  }, [reload]);
+  }, []);
+
+  
 
   return Object.keys(singlePodcast).length > 0 ? (
     <Container>
@@ -32,26 +34,53 @@ function Podcast() {
           <BsArrowBarLeft size="40px" color="#666600" />
         </Link>
         <span>
-          {singlePodcast.PodcastLikes.length > 0 && (
-            <AiFillStar
-              size="40px"
-              color="#666600"
-              onClick={() => {
-                podcastService.handleFavoritePodcast(singlePodcast.id, config);
-                setReload(reload + 1);
-              }}
-            />
-          )}
-          {singlePodcast.PodcastLikes.length === 0 && (
-            <AiOutlineStar
-              size="40px"
-              color="#666600"
-              onClick={() => {
-                podcastService.handleFavoritePodcast(singlePodcast.id, config);
-                setReload(reload + 1);
-              }}
-            />
-          )}
+          {function(){
+            if(star === "full"){
+              return (
+                <AiFillStar
+                size="40px"
+                color="#666600"
+                onClick={() => {
+                  podcastService.handleFavoritePodcast(singlePodcast.id, config);
+                  setStar("empty")
+                }}
+              />
+              )
+            } else if (star === "empty"){
+              return (
+                <AiOutlineStar
+                size="40px"
+                color="#666600"
+                onClick={() => {
+                  podcastService.handleFavoritePodcast(singlePodcast.id, config);
+                  setStar("full")
+                }}
+              />
+              )
+            } else if (singlePodcast.PodcastLikes.length > 0){
+              return (
+                <AiFillStar
+                size="40px"
+                color="#666600"
+                onClick={() => {
+                  podcastService.handleFavoritePodcast(singlePodcast.id, config);
+                  setStar("empty")
+                }}
+              />
+              )
+            } else if (singlePodcast.PodcastLikes.length === 0){
+              return (
+                <AiOutlineStar
+                size="40px"
+                color="#666600"
+                onClick={() => {
+                  podcastService.handleFavoritePodcast(singlePodcast.id, config);
+                  setStar("full")
+                }}
+              />
+              )
+            }
+          }()}
           <img src={userData.usrImage} alt={userData.usrImage} />
         </span>
       </header>
