@@ -12,3 +12,6 @@ export function getOnePodcast(id, config) {
 export function getFavoritePodcast(config) {
     return axios.get(`${process.env.REACT_APP_API_URI}/podcasts/favorites`, config);
   }
+export function handleFavoritePodcast(id, config){
+  return axios.post(`${process.env.REACT_APP_API_URI}/podcasts/favorites/${id}`, {} ,config)
+}
