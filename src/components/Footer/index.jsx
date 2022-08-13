@@ -1,8 +1,9 @@
 import React from 'react'
+import { Container } from './styles'
 
 function Footer() {
   return (
-    <div>Footer</div>
+    <Container>© LetterPodcastxd Limited. Made by fans in Cacuia. Podcast data by myself. Mobile site.</Container>
   )
 }
 

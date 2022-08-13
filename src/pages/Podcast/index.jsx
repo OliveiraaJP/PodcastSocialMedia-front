@@ -7,6 +7,7 @@ import UserContext from "../../contexts/userContext";
 import { Container } from "./styles";
 import * as podcastService from "../../services/podcastService.js";
 import Loading from "../../utils/Loading";
+import Footer from "../../components/Footer";
 
 function Podcast() {
   const { userData } = useContext(UserContext);
@@ -90,6 +91,7 @@ function Podcast() {
         <h3>{singlePodcast.beginAt}</h3>
         <p>{singlePodcast.description}</p>
       </main>
+      <Footer/>
     </Container>
   ) : (
     <Container>

@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const Container = styled.div`
   margin: auto;
   width: 100%;
-  height: 100vh;
   display: flex;
   align-items: center;
   margin-top: 20px;
@@ -13,7 +12,7 @@ export const Container = styled.div`
 
 export const Box = styled.div`
     width: 100%;
-    height: 41%;
+    min-height: 200px;
     background-color: #E0E0E0;
     border: 1px solid #666600;
     padding: 5px;
@@ -21,6 +20,7 @@ export const Box = styled.div`
 
     header{
       height: 15%;
+      margin-bottom: 10px;
       width: 100%;
       /* background-color: orange; */
       font-family: 'Karla', sans-serif;

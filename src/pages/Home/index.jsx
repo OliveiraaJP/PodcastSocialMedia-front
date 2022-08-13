@@ -7,6 +7,7 @@ import PodcastBox from "../../components/PodcastBox";
 import UserContext from "../../contexts/userContext";
 import { Box, Container } from "./styles";
 import { useNavigate } from "react-router-dom";
+import questionMark from "../../assets/question-mark.png"
 
 function Home() {
   const navigate = useNavigate();
@@ -55,7 +56,10 @@ function Home() {
 
   return (
     <>
-      {userData.token === null && <p>TEM QUE LOGAR MERMAO</p>}
+      {userData.token === null &&
+        (function () {
+          navigate("/login");
+        })()}
       {userData.token !== null && (
         <>
           <Header
@@ -80,6 +84,7 @@ function Home() {
                         />
                       );
                     })}
+                  {favPodcasts.length === 0 && <PodcastBox className='empty' podcastName='Nenhum favorito ainda :/' podcastImage={questionMark}/>}
                 </main>
               </Box>
               <Box>
