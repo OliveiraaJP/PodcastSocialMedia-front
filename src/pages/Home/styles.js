@@ -14,6 +14,7 @@ export const Box = styled.div`
     width: 100%;
     min-height: 200px;
     background-color: #E0E0E0;
+    overflow: scroll;
     border: 1px solid #666600;
     padding: 5px;
     margin-bottom: 15px;
@@ -32,7 +33,7 @@ export const Box = styled.div`
       width: 100%;
       height: 85%;
       /* background-color: beige; */
-      overflow-y: scroll;
+      overflow: scroll;
       display: flex;
       gap: 15px;
 
