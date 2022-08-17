@@ -10,6 +10,7 @@ export const Container = styled.div`
   padding: 20px 20px;
   display: flex;
   background-color: #202020;
+  z-index: 1;
 
   span {
     display: flex;
