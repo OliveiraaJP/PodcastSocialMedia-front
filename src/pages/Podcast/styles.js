@@ -92,6 +92,7 @@ export const CommentsContainer = styled.div`
       margin: auto;
       width: 90%;
       padding-left: 10px;
+      padding-top: 5px;
       margin-bottom: 20px;
       height: 100px;
       background-color: antiquewhite;
