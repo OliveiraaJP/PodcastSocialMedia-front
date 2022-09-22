@@ -6,4 +6,5 @@ color: #606060;
 padding: 0px 15px;
 text-align: center;
 margin-bottom: 10px;
+margin-top: 30px;
 `

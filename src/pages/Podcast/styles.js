@@ -40,7 +40,7 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: center;
 
-    img{
+    img {
       -webkit-box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.75);
       -moz-box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.75);
       box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.75);
@@ -56,9 +56,46 @@ export const Container = styled.div`
       color: #010101;
       margin-bottom: 13px;
     }
-    p{
+    p {
       padding: 10px 7%;
-      margin-bottom:30px;
+      margin-bottom: 30px;
+    }
+  }
+`;
+
+export const CommentsContainer = styled.div`
+  .send{
+    background-color: #666600;
+    font-weight: 800;
+    width: 12%;
+    margin-left: 5%;
+    margin-bottom: 50px;
+  }
+
+  h1 {
+    padding: 0 5%;
+    border-bottom: 2px solid black;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    button {
+      width: 12%;
+      background-color: #666600;
+      font-weight: 800;
+    }
+  }
+  form {
+    textarea {
+      display: block;
+      margin: auto;
+      width: 90%;
+      padding-left: 10px;
+      margin-bottom: 20px;
+      height: 100px;
+      background-color: antiquewhite;
+      transition: all 200ms ease-in-out 1s;
     }
   }
 `;
