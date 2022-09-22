@@ -20,9 +20,9 @@
   </div>
 
 <h2>Demostration</h2>
-
+<div align="center">
 ![podcast](https://user-images.githubusercontent.com/98192737/191659178-a0da1351-aec3-4bcb-9c6c-c27317053a10.gif)
-
+</div>
 
 <h2>How to run:</h2>
 
