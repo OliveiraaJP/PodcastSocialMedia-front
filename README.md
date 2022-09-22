@@ -19,8 +19,10 @@
 
   </div>
 
+<h2>Demostration</h2>
 
 <h2>How to run:</h2>
+![podcast](https://user-images.githubusercontent.com/98192737/191659090-f08c458c-38dc-45d6-9269-4ef5b03baec1.gif)
 
 <h3>Clone the repository:</h3>
 
