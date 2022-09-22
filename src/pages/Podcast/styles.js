@@ -64,6 +64,14 @@ export const Container = styled.div`
 `;
 
 export const CommentsContainer = styled.div`
+  .send{
+    background-color: #666600;
+    font-weight: 800;
+    width: 12%;
+    margin-left: 5%;
+    margin-bottom: 50px;
+  }
+
   h1 {
     padding: 0 5%;
     border-bottom: 2px solid black;
@@ -84,7 +92,7 @@ export const CommentsContainer = styled.div`
       margin: auto;
       width: 90%;
       padding-left: 10px;
-      margin-bottom: 50px;
+      margin-bottom: 20px;
       height: 100px;
       background-color: antiquewhite;
       transition: all 200ms ease-in-out 1s;

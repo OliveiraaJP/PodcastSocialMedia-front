@@ -20,6 +20,7 @@ function Podcast() {
     },
   };
   const [star, setStar] = useState("");
+  const [reload, setReload] = useState(true)
   console.log(id);
   const [singlePodcast, setSinglePodcast] = useState({});
   const [commentBox, setCommentBox] = useState("close");
@@ -27,7 +28,7 @@ function Podcast() {
     const promise = podcastService.getOnePodcast(id, config);
     promise.then((data) => setSinglePodcast(data.data));
     promise.catch((err) => console.log(err));
-  }, []);
+  }, [reload]);
 
   const [text, setText] = useState('')
 
@@ -40,8 +41,11 @@ function Podcast() {
     }
   }
 
-  function sendComment(podcastId){
-    axios.post(`${process.env.REACT_APP_API_URI}/comments`, {podcastId, text} ,config)
+  async function sendComment(event){
+    event.preventDefault()
+    const podcastId = singlePodcast.id
+    await axios.post(`${process.env.REACT_APP_API_URI}/comments`, {podcastId, text} ,config)
+    await setReload(!reload)
   }
 
   return Object.keys(singlePodcast).length > 0 ? (
@@ -131,9 +135,9 @@ function Podcast() {
           </h1>
         )}
         {commentBox === "open" && (
-          <form onSubmit={() => sendComment(singlePodcast.id)}>
+          <form onSubmit={sendComment}>
             <textarea value={text} onChange={(e) => setText(e.target.value)}></textarea>
-            <button type="submit">Enviar</button>
+            <button className="send" type="submit">Enviar</button>
           </form>
         )}
         {singlePodcast.Comments.map((comment, i) => {
