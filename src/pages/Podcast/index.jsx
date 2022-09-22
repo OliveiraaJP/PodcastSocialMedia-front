@@ -45,7 +45,9 @@ function Podcast() {
     event.preventDefault()
     const podcastId = singlePodcast.id
     await axios.post(`${process.env.REACT_APP_API_URI}/comments`, {podcastId, text} ,config)
-    await setReload(!reload)
+    setCommentBox("close")
+    setText('')
+    setReload(!reload)
   }
 
   return Object.keys(singlePodcast).length > 0 ? (
