@@ -21,8 +21,11 @@
 
 <h2>Demostration</h2>
 
+![podcast](https://user-images.githubusercontent.com/98192737/191659178-a0da1351-aec3-4bcb-9c6c-c27317053a10.gif)
+
+
 <h2>How to run:</h2>
-![podcast](https://user-images.githubusercontent.com/98192737/191659090-f08c458c-38dc-45d6-9269-4ef5b03baec1.gif)
+
 
 <h3>Clone the repository:</h3>
 
