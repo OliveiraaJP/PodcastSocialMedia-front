@@ -21,7 +21,6 @@ function Podcast() {
   };
   const [star, setStar] = useState("");
   const [reload, setReload] = useState(true)
-  console.log(id);
   const [singlePodcast, setSinglePodcast] = useState({});
   const [commentBox, setCommentBox] = useState("close");
   useEffect(() => {

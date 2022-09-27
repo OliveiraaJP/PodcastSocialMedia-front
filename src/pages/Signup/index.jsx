@@ -25,7 +25,6 @@ function Signup() {
     });
     response.then((data) => {
       if (data.status === 201) {
-        console.log([data.status, data.statusText]);
         navigate("/login");
       } else {
         console.log([data.status, data.statusText]);

@@ -12,7 +12,6 @@ import questionMark from "../../assets/question-mark.png"
 function Home() {
   const navigate = useNavigate();
   const { userData } = useContext(UserContext);
-  console.log(userData);
   const config = {
     headers: {
       Authorization: `Bearer ${userData.token}`,

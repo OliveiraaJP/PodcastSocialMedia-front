@@ -21,7 +21,6 @@ const Signin = () => {
     response.then((data) => {
       if (data.status === 201) {
         const {token, username, image} = data.data
-        console.log([data.status, data.statusText]);
         setUserData({ token, usrName: username, usrImage: image });
         navigate("/homepage");
       } else {
